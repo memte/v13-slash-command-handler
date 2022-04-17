@@ -1,2 +1,2 @@
-# slash-handler-v13
-V13 Slash Command Handler!
+# V13 Slash Commands Handler
+Proje v13 uyumludur. Örnek kullanım src/commands/test.js dosyasında verilmiştir. Herhangi bir sorunla karşılaşırsanız [destek sunucuma](https://discord.gg/u6CcYxDchB) bekliyorum!
