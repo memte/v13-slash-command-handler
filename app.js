@@ -12,7 +12,7 @@ client.events = new Collection();
 
 var token = "TOKEN İS HERE"
 
-const log = message => { console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${message}`) };
+const log = l => { console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${l}`) };
 
 //command-handler
 const commands = [];
