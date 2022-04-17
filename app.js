@@ -31,12 +31,10 @@ client.on("ready", async () => {
                 Routes.applicationCommands(client.user.id),
                 { body: commands },
             );
-
-		    log(`${client.commands.size} Komut yüklendi ve yenilendi!`);
         } catch (error) {
             console.error(error);
         }
-    log(`${client.user.username} Başarıyla Aktif Edildi!`);
+    log(`${client.user.username} Aktif Edildi!`);
 })
 
 //event-handler
