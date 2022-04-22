@@ -3,9 +3,9 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("test")
-    .setDescription("Test!"),
+    .setName("ping")
+    .setDescription("Pong!"),
     run: async (client, interaction) => {
-      return interaction.reply(`Hello World!`)
+      return interaction.reply(`Pong!`)
     }
  };
