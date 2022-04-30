@@ -6,6 +6,7 @@ const moment = require("moment");
 const { REST } = require('@discordjs/rest');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { Routes } = require('discord-api-types/v9');
+const rest = new REST({ version: '9' }).setToken(token);
 
 client.commands = new Collection()
 client.events = new Collection();
@@ -22,8 +23,6 @@ for (const file of commandFiles) {
   commands.push(command.data.toJSON());
   client.commands.set(command.data.name, command);
 }
-
-const rest = new REST({ version: '9' }).setToken(token);
 
 client.on("ready", async () => {
         try {
