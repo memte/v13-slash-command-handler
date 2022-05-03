@@ -6,12 +6,12 @@ const moment = require("moment");
 const { REST } = require('@discordjs/rest');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { Routes } = require('discord-api-types/v9');
-const rest = new REST({ version: '9' }).setToken(token);
 
 client.commands = new Collection()
 client.events = new Collection();
 
 var token = "TOKEN İS HERE"
+const rest = new REST({ version: '9' }).setToken(token);
 
 const log = l => { console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${l}`) };
 
