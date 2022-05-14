@@ -1,4 +1,4 @@
-# V13 Slash Commands Handler
+# V13 Slash Command Handler
 Proje v13 uyumludur. Örnek kullanım src/commands/ping.js dosyasında verilmiştir. Herhangi bir sorunla karşılaşırsanız [destek sunucuma](https://discord.gg/u6CcYxDchB) gelebilirsiniz!
  Destek olmak isterseniz projeye star verebilirsiniz.
  
