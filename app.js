@@ -1,6 +1,6 @@
 const { Client, Permissions, Intents, Collection, MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");
 const client = new Client({ intents: new Intents(98303) });
-const { owner, prefix, token } = require("./config.json");
+const { prefix, owner, token } = require("./config.json");
 const { readdirSync } = require("fs")
 const moment = require("moment");
 const { REST } = require('@discordjs/rest');
