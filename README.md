@@ -4,4 +4,4 @@ Proje v13 uyumludur. Örnek kullanım src/commands/ping.js dosyasında verilmiş
  
  ![image](https://user-images.githubusercontent.com/63320170/163699347-99fbf89d-7531-4d31-bed5-97898a5b0479.png)
  
-## Not: **config.json** dosyasında ayarlamalarinizi yapmayi unutmayin.
+### Not: **config.json** dosyasında ayarlamalarinizi yapmayi unutmayin.
