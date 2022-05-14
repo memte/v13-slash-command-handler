@@ -1,6 +1,6 @@
 const { Client, Permissions, Intents, Collection, MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");
 const client = new Client({ intents: new Intents(98303) });
-const { owner, prefix } = require("./config.json");
+const { owner, prefix, token } = require("./config.json");
 const { readdirSync } = require("fs")
 const moment = require("moment");
 const { REST } = require('@discordjs/rest');
@@ -10,7 +10,6 @@ const { Routes } = require('discord-api-types/v9');
 client.commands = new Collection()
 client.events = new Collection();
 
-var token = "TOKEN İS HERE"
 const rest = new REST({ version: '9' }).setToken(token);
 
 const log = l => { console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${l}`) };
