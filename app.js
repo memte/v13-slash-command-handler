@@ -8,7 +8,6 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { Routes } = require('discord-api-types/v9');
 
 client.commands = new Collection()
-client.events = new Collection();
 
 const rest = new REST({ version: '9' }).setToken(token);
 
