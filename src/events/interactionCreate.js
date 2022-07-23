@@ -1,6 +1,6 @@
-const { Discord, Permissions, MessageEmbed } = require("discord.js");
+const { Permissions, MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
-const { owner } = require("../../config.json");
+const { owner } = require("../../config.js");
 const commandFiles = readdirSync('./src/commands').filter(file => file.endsWith('.js'));
 
  module.exports = {
