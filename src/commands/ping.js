@@ -7,6 +7,6 @@ module.exports = {
     .setDescription("Pong!"),
     run: async (client, interaction) => {
       interaction.reply(`Pong 🏓`)
-      // komuta seçenekler eklemek istersen guide: https://discordjs.guide/interactions/slash-commands.html#options
+      // komuta seçenekler eklemek istersen guide: https://v13.discordjs.guide/interactions/slash-commands.html#options
     }
  };
