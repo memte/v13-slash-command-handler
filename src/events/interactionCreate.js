@@ -1,19 +1,17 @@
-const { Permissions, MessageEmbed } = require("discord.js");
-const { readdirSync } = require("fs");
-const { owner } = require("../../config.js");
-const commandFiles = readdirSync('./src/commands').filter(file => file.endsWith('.js'));
+import { Permissions, MessageEmbed } from "discord.js";
+import { readdirSync } from "fs";
 
  module.exports = {
 	name: 'interactionCreate',
 	execute: async(interaction) => {
-  let client = interaction.client;
-    	if (!interaction.isCommand()) return;
+      let client = interaction.client;
+      if (!interaction.isCommand()) return;
       if(interaction.member.bot) return;
 
-	for (const file of commandFiles) {
-        const command = require(`../../src/commands/${file}`);
+      readdirSync('./src/commands').forEach(async file => {
+        const command = await import(`../../src/commands/${file}`);
         if(interaction.commandName.toLowerCase() === command.data.name.toLowerCase()) {
         command.run(client, interaction)
     }
-	}
+	})
   }}
