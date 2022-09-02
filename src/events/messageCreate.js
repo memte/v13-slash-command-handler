@@ -1,6 +1,5 @@
-const { Permissions, MessageEmbed } = require("discord.js");
-const { owner, prefix } = require('../../config.js');
-module.exports = {
+import { Permissions, MessageEmbed } from "discord.js";
+export default {
 	name: 'messageCreate',
 	execute: async(message) => {
   let client = message.client;
