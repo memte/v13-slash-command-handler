@@ -1,4 +1,4 @@
-const { Discord, MessageEmbed, Permissions } = require("discord.js");
+const { MessageEmbed, Permissions } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
