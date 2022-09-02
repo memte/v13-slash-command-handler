@@ -7,6 +7,7 @@ import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v9';
 
 let token = config.token
+
 client.commands = new Collection()
 
 const rest = new REST({ version: '9' }).setToken(token);
