@@ -42,4 +42,5 @@ readdirSync('./src/events').forEach(async file => {
 	}
 })
 //
+
 client.login(token)
