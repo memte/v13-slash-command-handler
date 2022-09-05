@@ -1,5 +1,5 @@
 const { Permissions, MessageEmbed } = require("discord.js");
-const { owner, prefix } = require('../../config.js');
+const { owner, prefix } = require('../config.js');
 module.exports = {
 	name: 'messageCreate',
 	execute: async(message) => {
