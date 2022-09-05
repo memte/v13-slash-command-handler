@@ -1,4 +1,4 @@
-# V13 Slash Command Handler
+## V13 Slash Command Handler
 Proje discord.js v13 üzerine yazılmıştır. **Gerekli olan minimum nodejs versiyonu v16.6** Örnek kullanım src/commands/ping.js dosyasında verilmiştir. Herhangi bir sorunla karşılaşırsanız [destek sunucuma](https://discord.gg/u6CcYxDchB) gelebilirsiniz!
 Destek olmak isterseniz projeye star verebilirsiniz.
  
