@@ -1,6 +1,6 @@
 ## V13 Slash Command Handler
 ##### Proje discord.js v13 üzerine yazılmıştır.
-##### **Gerekli olan minimum nodejs versiyonu: v16.6**
+##### Gerekli olan minimum nodejs versiyonu: v16.6
 ##### Komutla ilgili örnek ayarlamalar [src/commands/slash/ping.js](https://github.com/memte/v13-slash-command-handler/blob/es6/src/commands/slash/ping.js) dosyasında verilmiştir. (Daha ayrıntılı guide: https://v13.discordjs.guide/interactions/slash-commands.html#options)
 ##### Destek olmak isterseniz projeye star verebilirsiniz.
  
