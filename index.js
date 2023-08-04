@@ -14,15 +14,15 @@ client.commandaliases = new Collection()
 
 const rest = new REST({ version: '9' }).setToken(token);
 
-const log = x => { console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${x}`) };
+function log(message) {
+  console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${message}`);
+};
 
 //command-handler
-const commands = []
 readdirSync('./src/commands/normal').forEach(async file => {
   const command = await import(`./src/commands/normal/${file}`).then(c => c.default)
   if(command) {
     client.commands.set(command.name, command)
-    commands.push(command.name, command);
     if(command.aliases && Array.isArray(command.aliases)) {
        command.aliases.forEach(alias => {
         client.commandaliases.set(alias, command.name)  
