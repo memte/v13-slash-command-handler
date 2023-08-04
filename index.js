@@ -14,7 +14,9 @@ client.commandaliases = new Collection()
 
 const rest = new REST({ version: '9' }).setToken(token);
 
-const log = x => { console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${x}`) };
+function log(message) {
+  console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${message}`);
+};
 
 //command-handler
 const commands = []
