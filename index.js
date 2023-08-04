@@ -19,12 +19,10 @@ function log(message) {
 };
 
 //command-handler
-const commands = []
 readdirSync('./src/commands/normal').forEach(async file => {
   const command = await require(`./src/commands/normal/${file}`);
   if(command) {
     client.commands.set(command.name, command)
-    commands.push(command.name, command);
     if(command.aliases && Array.isArray(command.aliases)) {
        command.aliases.forEach(alias => {
         client.commandaliases.set(alias, command.name)  
