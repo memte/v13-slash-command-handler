@@ -21,7 +21,7 @@ function log(message) {
   console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${message}`);
 };
 
-//command-handler
+// Command Handler
 readdirSync('./src/commands/normal').forEach(async file => {
   const command = await require(`./src/commands/normal/${file}`);
   if(command) {
@@ -32,7 +32,7 @@ readdirSync('./src/commands/normal').forEach(async file => {
 })
 }}})
 
-//slash-command-handler
+// Slash Command Handler
 const slashcommands = [];
 readdirSync('./src/commands/slash').forEach(async file => {
   const command = await require(`./src/commands/slash/${file}`);
@@ -52,7 +52,7 @@ client.on("ready", async () => {
     log(`${client.user.username} Aktif Edildi!`);
 })
 
-//event-handler
+// Event Handler
 readdirSync('./src/events').forEach(async file => {
 	const event = require(`./src/events/${file}`);
 	if (event.once) {
@@ -62,7 +62,7 @@ readdirSync('./src/events').forEach(async file => {
 	}
 })
 
-//process-listeners
+// Process Listeners
 process.on("unhandledRejection", e => { 
    console.log(e)
  }) 
