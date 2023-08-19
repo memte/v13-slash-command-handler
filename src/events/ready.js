@@ -3,6 +3,10 @@ module.exports = {
  once: true,
  execute(client) {
   let activities = [ `Developed by memte.`, `${client.user.username}` ], i = 0;
-  setInterval(() => client.user.presence.set({ activities: [{name: `${activities[i++ % activities.length]}`, type: "LISTENING" }]}), 120000);
+  function botPresence() {
+  client.user.presence.set({ activities: [{ name: `${activities[i++ % activities.length]}`, type: "LISTENING" }]})
+  setInterval(botPresence, 120000)
+  }
+  botPresence()
   client.log(`${client.user.username} Aktif Edildi!`)
  }};
