@@ -41,7 +41,10 @@ readdirSync('./src/commands/slash').forEach(async file => {
   client.slashcommands.set(command.data.name, command);
 })
 
-client.on("ready", async () => {
+async function whenReadyClient() {
+    if(!client.readyAt){
+        setTimeout(whenReadyClient, 1000)
+    } else {
         try {
             await rest.put(
                 Routes.applicationCommands(client.user.id),
@@ -50,8 +53,8 @@ client.on("ready", async () => {
         } catch (error) {
             console.error(error);
         }
-    log(`${client.user.username} Aktif Edildi!`);
-})
+}}
+whenReadyClient()
 
 // Event Handler
 readdirSync('./src/events').forEach(async file => {
