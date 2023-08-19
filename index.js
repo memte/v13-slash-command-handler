@@ -21,7 +21,7 @@ const rest = new REST({ version: '9' }).setToken(token);
 function log(message) {
   console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${message}`);
 };
-
+client.log = log
 // Command Handler
 readdirSync('./src/commands/prefix').forEach(async file => {
   const command = await require(`./src/commands/prefix/${file}`);
