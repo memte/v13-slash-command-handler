@@ -1,7 +1,11 @@
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v9');
+
 module.exports = {
  name: 'ready',
  once: true,
  execute(client) {
+  const rest = new REST({ version: '9' }).setToken(client.token);
   let activities = [ `Developed by memte.`, `${client.user.username}` ], i = 0;
   function botPresence() {
   client.user.presence.set({ activities: [{ name: `${activities[i++ % activities.length]}`, type: "LISTENING" }]})
@@ -9,4 +13,13 @@ module.exports = {
   }
   botPresence()
   client.log(`${client.user.username} Aktif Edildi!`)
+  //
+        try {
+            await rest.put(
+                Routes.applicationCommands(client.user.id),
+                { body: client.slashDatas },
+            );
+        } catch (error) {
+            console.error(error);
+        }
  }};
