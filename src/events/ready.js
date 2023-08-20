@@ -13,4 +13,13 @@ export default {
   }
   botPresence()
   client.log(`${client.user.username} Aktif Edildi!`)
+  //        
+        try {
+            await rest.put(
+                Routes.applicationCommands(client.user.id),
+                { body: client.slashDatas },
+            );
+        } catch (error) {
+            console.error(error);
+        }
 }};
