@@ -7,14 +7,13 @@ const client = new Client({
 import config from "./src/config.js";
 import { readdirSync } from "node:fs";
 import moment from "moment";
-import { REST } from '@discordjs/rest';
-import { Routes } from 'discord-api-types/v9';
 
 let token = config.token
 
 client.commands = new Collection()
-client.slashcommands = new Collection()
 client.commandaliases = new Collection()
+client.slashcommands = new Collection()
+client.slashDatas = []
 
 const rest = new REST({ version: '9' }).setToken(token);
 
@@ -38,24 +37,9 @@ readdirSync('./src/commands/prefix').forEach(async file => {
 const slashcommands = [];
 readdirSync('./src/commands/slash').forEach(async file => {
   const command = await import(`./src/commands/slash/${file}`).then(c => c.default)
-  slashcommands.push(command.data.toJSON());
+  client.slashDatas.push(command.data.toJSON());
   client.slashcommands.set(command.data.name, command);
 })
-
-async function whenReadyClient() {
-    if(!client.readyAt){
-        setTimeout(whenReadyClient, 1000)
-    } else {
-        try {
-            await rest.put(
-                Routes.applicationCommands(client.user.id),
-                { body: slashcommands },
-            );
-        } catch (error) {
-            console.error(error);
-        }
-}}
-whenReadyClient()
 
 // Event Handler
 readdirSync('./src/events').forEach(async file => {
