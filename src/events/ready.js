@@ -4,7 +4,7 @@ import { Routes } from 'discord-api-types/v9';
 export default {
  name: 'ready',
  once: true,
- async execute(client) {
+ execute: async(interaction) => {
   const rest = new REST({ version: '9' }).setToken(client.token);
   const activities = [ `Developed by memte.`, `${client.user.username}` ]
   let nowActivity = 0;
