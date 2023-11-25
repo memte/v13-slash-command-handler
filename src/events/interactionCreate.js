@@ -5,7 +5,7 @@ module.exports = {
   if (!interaction.isCommand()) return;
   if(interaction.user.bot) return;
   try {
-  const command = client.slashcommands.get(interaction.commandName)
+  const command = client.slashCommands.get(interaction.commandName)
   command.run(client, interaction)
   } catch (e) {
   console.error(e)
