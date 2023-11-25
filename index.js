@@ -11,9 +11,9 @@ import moment from "moment";
 let token = config.token
 
 client.commands = new Collection()
-client.commandaliases = new Collection()
-client.slashcommands = new Collection()
-client.slashdatas = []
+client.commandAliases = new Collection()
+client.slashCommands = new Collection()
+client.slashDatas = []
 
 const rest = new REST({ version: '9' }).setToken(token);
 
@@ -29,7 +29,7 @@ readdirSync('./src/commands/prefix').forEach(async file => {
     client.commands.set(command.name, command)
     if(command.aliases && Array.isArray(command.aliases)) {
        command.aliases.forEach(alias => {
-        client.commandaliases.set(alias, command.name)  
+        client.commandAliases.set(alias, command.name)  
 })
 }}})
 
@@ -37,8 +37,8 @@ readdirSync('./src/commands/prefix').forEach(async file => {
 const slashcommands = [];
 readdirSync('./src/commands/slash').forEach(async file => {
   const command = await import(`./src/commands/slash/${file}`).then(c => c.default)
-  client.slashdatas.push(command.data.toJSON());
-  client.slashcommands.set(command.data.name, command);
+  client.slashDatas.push(command.data.toJSON());
+  client.slashCommands.set(command.data.name, command);
 })
 
 // Event Handler

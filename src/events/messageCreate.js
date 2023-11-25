@@ -15,7 +15,7 @@ export default {
   const cmd = args.shift().toLowerCase();
   if(cmd.length == 0 ) return;
   let command = client.commands.get(cmd)
-  if(!command) command = client.commands.get(client.commandaliases.get(cmd));
+  if(!command) command = client.commands.get(client.commandAliases.get(cmd));
 
   if(command) {
     if(command.cooldown) {
