@@ -23,7 +23,6 @@ function log(message) {
 client.log = log
 
 // Command Handler
-// - Handlers -
 const commandFolders = readdirSync("./src/commands");
 
 Promise.all(commandFolders.map(async (category) => {
