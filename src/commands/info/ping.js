@@ -1,7 +1,16 @@
 const { MessageEmbed, Permissions } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-module.exports = {
+const prefix = {
+  name: "ping",
+  aliases: ["pong"],
+  cooldown: 5000,//1 saniye = 1000 ms / cooldown olmasını istemezseniz 0 yazın.
+  run: async (client, message, args) => {
+      message.reply(`Pong 🏓`)
+    }
+ }; 
+
+const slash = {
   data: new SlashCommandBuilder()
     .setName("ping")
     .setDescription("Pong!"),
@@ -10,3 +19,4 @@ module.exports = {
       interaction.reply(`Pong 🏓`)
     }
  };
+module.exports = { prefix, slash }

@@ -19,34 +19,52 @@ function log(message) {
   console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${message}`);
 };
 client.log = log
-// Command Handler
-readdirSync('./src/commands/prefix').forEach(async file => {
-  const command = await require(`./src/commands/prefix/${file}`);
-  if(command) {
-    client.commands.set(command.name, command)
-    if(command.aliases && Array.isArray(command.aliases)) {
-       command.aliases.forEach(alias => {
-        client.commandAliases.set(alias, command.name)  
-})
-}}})
 
-// Slash Command Handler
-const slashcommands = [];
-readdirSync('./src/commands/slash').forEach(async file => {
-  const command = await require(`./src/commands/slash/${file}`);
-  client.slashDatas.push(command.data.toJSON());
-  client.slashCommands.set(command.data.name, command);
-})
+// Command Handler
+// - Handlers -
+const commandFolders = readdirSync("./src/commands");
+
+Promise.all(commandFolders.map(async (category) => {
+  const commandFiles = await readdirSync(`./src/commands/${category}`);
+
+  await Promise.all(commandFiles.map(async (file) => {
+    const commands = await require(`./src/commands/${category}/${file}`);
+
+    if (commands) {
+      if (commands.prefix) {
+        // Prefix Command
+        const prefixCommand = commands.prefix;
+        client.commands.set(prefixCommand.name, prefixCommand);
+
+        if (prefixCommand.aliases && Array.isArray(prefixCommand.aliases)) {
+          prefixCommand.aliases.forEach(alias => {
+            client.commandAliases.set(alias, prefixCommand.name);
+          });
+        }
+      }
+
+      if (commands.slash) {
+        // Slash Command
+        const slashCommand = commands.slash;
+        client.slashDatas.push(slashCommand.data.toJSON());
+        client.slashCommands.set(slashCommand.data.name, slashCommand);
+      }
+    }
+  }));
+}));
 
 // Event Handler
-readdirSync('./src/events').forEach(async file => {
-	const event = require(`./src/events/${file}`);
-	if (event.once) {
-		client.once(event.name, (...args) => event.execute(...args));
-	} else {
-		client.on(event.name, (...args) => event.execute(...args));
-	}
-})
+const eventFiles = readdirSync("./src/events");
+
+Promise.all(eventFiles.map(async (file) => {
+const event = await require(`./src/events/${file}`);
+
+if (event.once) {
+  client.once(event.name, (...args) => event.execute(...args));
+} else {
+  client.on(event.name, (...args) => event.execute(...args));
+}
+}));
 
 // Process Listeners
 process.on("unhandledRejection", e => { 
