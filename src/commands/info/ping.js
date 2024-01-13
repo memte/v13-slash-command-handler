@@ -1,7 +1,15 @@
 import { MessageEmbed, Permissions } from "discord.js";
 import { SlashCommandBuilder } from "@discordjs/builders";
 
-export default {
+const prefix = {
+  name: "ping",
+  description: "Pong!",
+  run: async (client, message, args) => {
+    message.reply(`Pong 🏓`)
+  }
+};
+
+const slash = {
   data: new SlashCommandBuilder()
     .setName("ping")
     .setDescription("Pong!"),
@@ -10,3 +18,5 @@ export default {
       interaction.reply(`Pong 🏓`)
     }
  };
+
+ module.exports = { prefix, slash };
