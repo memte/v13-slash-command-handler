@@ -3,7 +3,7 @@ import { SlashCommandBuilder } from "@discordjs/builders";
 
 const prefix = {
   name: "ping",
-  description: "Pong!",
+  aliases: ["pong"],
   run: async (client, message, args) => {
     message.reply(`Pong 🏓`)
   }
@@ -19,4 +19,4 @@ const slash = {
     }
  };
 
- module.exports = { prefix, slash };
+ export { prefix, slash };

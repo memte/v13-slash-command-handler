@@ -30,7 +30,7 @@ Promise.all(commandFolders.map(async (category) => {
   const commandFiles = await readdirSync(`./src/commands/${category}`);
 
   await Promise.all(commandFiles.map(async (file) => {
-    const commands = await import(`./src/commands/${category}/${file}`).then(x => x.default);
+    const commands = await import(`./src/commands/${category}/${file}`);
 
     if (commands) {
       if (commands.prefix) {
