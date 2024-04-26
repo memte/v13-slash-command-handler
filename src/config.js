@@ -1,5 +1,5 @@
 export default {
-  prefix: "!",
-  owner: "Bot Sahip ID",
-  token: "BOT Tokeni",
-}
+	prefix: '!',
+	owner: 'Bot Sahip ID',
+	token: 'BOT Tokeni',
+};
